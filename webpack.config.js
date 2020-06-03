@@ -3,7 +3,7 @@ const path = require('path');
 
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 const HtmlWebpackPlugin = require('html-webpack-plugin');//
-
+const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 module.exports = {//有配置物件的打包法
     mode:'development', //"-p"|"-d" |none mode: 'development', // "production" | "development" | "none"  開發模式
     entry: './src/index.js',
@@ -30,7 +30,9 @@ module.exports = {//有配置物件的打包法
                 }, 
                     {
                         loader: 'sass-loader'
-                    }
+                    },
+  
+                    
             ]
         }]
     },
@@ -44,16 +46,19 @@ module.exports = {//有配置物件的打包法
         filename: "./css/[name].css"//打包完整的CSS包含資料夾
     }),
     new HtmlWebpackPlugin({
+        title:'首頁',
         //來源檔
         template: './src/index.html',
         //產生的檔案
         filename: 'index.html', 
-                    //是否要壓縮 要看 mode 模式
-                  //  minify: false,
+          //是否要壓縮 要看 mode 模式
+          minify: false,
             
                     //調整配置 true || 'head' || 'body' || false
-                 //   inject: 'head',//設定位置
-    })
+            inject: 'body',//設定位置
+    }),
+                                                                                //清理舊的檔案
+                                                                                new CleanWebpackPlugin()   
 ]
 };
 /*[./src/cal.js] 175 bytes {main} [built] 連stule也打包
