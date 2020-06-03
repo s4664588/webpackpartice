@@ -1,6 +1,6 @@
+const webpack = require('webpack');//有些會用到
 const path = require('path');
 //npm install --save-dev css-loader style-loader安裝 這個才能整合CSS
-
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 const HtmlWebpackPlugin = require('html-webpack-plugin');//
 const { CleanWebpackPlugin } = require('clean-webpack-plugin');
@@ -11,6 +11,11 @@ module.exports = {//有配置物件的打包法
         path: path.resolve(__dirname,'dist'),
         filename: '[name].bundle.js' // '[name].bundle-[hash].js'HASH用來產生亂碼 
     },//path.resolve  node.js的語法
+    devServer: {
+        contentBase: path.join(__dirname, 'dist'),
+        compress: true,
+        port: 9000
+    },//同步瀏覽器
     module: {
         rules: [{
             test: /\.(sass|scss|css)$/,//可讀3種CSS檔案
