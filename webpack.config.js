@@ -9,7 +9,7 @@ module.exports = {//有配置物件的打包法
     entry: './src/index.js',
     output: {
         path: path.resolve(__dirname,'dist'),
-        filename: '[name].bundle.js' 
+        filename: '[name].bundle.js' // '[name].bundle-[hash].js'HASH用來產生亂碼 
     },//path.resolve  node.js的語法
     module: {
         rules: [{
@@ -39,7 +39,9 @@ module.exports = {//有配置物件的打包法
       
   //plugings
   plugins: [
-    //這個套件是載入 css 檔案
+            //清理舊的檔案 npm >npm install --save-dev clean-webpack-plugin
+             new CleanWebpackPlugin(),
+        //這個套件是載入 css 檔案
     new MiniCssExtractPlugin({
         // Options similar to the same options in webpackOptions.output
         // both options are optional
@@ -57,8 +59,7 @@ module.exports = {//有配置物件的打包法
                     //調整配置 true || 'head' || 'body' || false
             inject: 'body',//設定位置
     }),
-                                                                                //清理舊的檔案
-                                                                                new CleanWebpackPlugin()   
+                                                               
 ]
 };
 /*[./src/cal.js] 175 bytes {main} [built] 連stule也打包
