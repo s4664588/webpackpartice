@@ -2,6 +2,8 @@ const path = require('path');
 //npm install --save-dev css-loader style-loader安裝 這個才能整合CSS
 
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
+const HtmlWebpackPlugin = require('html-webpack-plugin');//
+
 module.exports = {//有配置物件的打包法
     mode:'development', //"-p"|"-d" |none mode: 'development', // "production" | "development" | "none"  開發模式
     entry: './src/index.js',
@@ -40,6 +42,17 @@ module.exports = {//有配置物件的打包法
         // Options similar to the same options in webpackOptions.output
         // both options are optional
         filename: "./css/[name].css"//打包完整的CSS包含資料夾
+    }),
+    new HtmlWebpackPlugin({
+        //來源檔
+        template: './src/index.html',
+        //產生的檔案
+        filename: 'index.html', 
+                    //是否要壓縮 要看 mode 模式
+                  //  minify: false,
+            
+                    //調整配置 true || 'head' || 'body' || false
+                 //   inject: 'head',//設定位置
     })
 ]
 };
