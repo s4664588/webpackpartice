@@ -1,7 +1,6 @@
 {
   "name": "webtobepack",
   "version": "1.0.0",
-  "description": "",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
@@ -10,5 +9,19 @@
   "license": "ISC",
   "dependencies": {
     "webpack": "^4.43.0"
-  }
+  },
+  "devDependencies": {
+    "css-loader": "^3.5.3",
+    "style-loader": "^1.2.1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/s4664588/webpackpartice.git"
+  },
+  "keywords": [],
+  "bugs": {
+    "url": "https://github.com/s4664588/webpackpartice/issues"
+  },
+  "homepage": "https://github.com/s4664588/webpackpartice#readme",
+  "description": ""
 }
