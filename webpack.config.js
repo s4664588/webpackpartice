@@ -14,6 +14,7 @@ module.exports = {//有配置物件的打包法
     devServer: {
         contentBase: path.join(__dirname, 'dist'),
         compress: true,
+        index: 'index.html',
         port: 9000
     },//同步瀏覽器
     module: {
@@ -45,7 +46,7 @@ module.exports = {//有配置物件的打包法
   //plugings
   plugins: [
             //清理舊的檔案 npm >npm install --save-dev clean-webpack-plugin
-             new CleanWebpackPlugin(),
+             //new CleanWebpackPlugin(),
         //這個套件是載入 css 檔案
     new MiniCssExtractPlugin({
         // Options similar to the same options in webpackOptions.output
