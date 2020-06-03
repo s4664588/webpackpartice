@@ -11,7 +11,7 @@ module.exports = {//有配置物件的打包法
     },//path.resolve  node.js的語法
     module: {
         rules: [{
-            test: /\.css$/,
+            test: /\.(sass|scss|css)$/,//可讀3種CSS檔案
             use: [{
                 loader: MiniCssExtractPlugin.loader,
                 options: {
@@ -25,7 +25,11 @@ module.exports = {//有配置物件的打包法
                     options: {
                         modules: true
                     }
-                }]
+                }, 
+                    {
+                        loader: 'sass-loader'
+                    }
+            ]
         }]
     },
       
